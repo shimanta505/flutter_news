@@ -1,12 +1,12 @@
-import 'package:flutter_news/authentication/signin_page.dart';
-import 'package:flutter_news/authentication/signup_page.dart';
+import 'package:flutter_news/views/page/authenticationPage/signin_page.dart';
 import 'package:flutter_news/views/page/detailsPage/details_page.dart';
 import 'package:flutter_news/views/page/homePage/home_page.dart';
 import 'package:flutter_news/views/page/news/offline_news_page.dart';
 import 'package:flutter_news/views/page/news/online_news_page.dart';
 import 'package:flutter_news/views/page/onBoardingPage/on_boarding_page.dart';
+import 'package:flutter_news/views/page/authenticationPage/signin_page.dart';
+import 'package:flutter_news/views/page/authenticationPage/signup_page.dart';
 import 'package:get/get.dart';
-
 
 class AppRoute extends GetPageRoute {
   static const String home = '/home';
