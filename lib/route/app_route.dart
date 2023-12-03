@@ -1,4 +1,3 @@
-import 'package:flutter_news/views/page/authenticationPage/signin_page.dart';
 import 'package:flutter_news/views/page/detailsPage/details_page.dart';
 import 'package:flutter_news/views/page/homePage/home_page.dart';
 import 'package:flutter_news/views/page/news/offline_news_page.dart';
