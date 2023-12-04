@@ -44,7 +44,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    pastDateFormat();
     print("is logged in or not${AuthService.isLOggedIn()}");
 
     return Scaffold(
@@ -52,7 +51,8 @@ class _HomePageState extends State<HomePage> {
         title: const Text("news"),
         actions: [
           IconButton(
-              onPressed: () => AuthService.signout(), icon: const Icon(Icons.logout))
+              onPressed: () => AuthService.signout(),
+              icon: const Icon(Icons.logout))
         ],
       ),
       bottomNavigationBar: Obx(
@@ -107,14 +107,6 @@ class _HomePageState extends State<HomePage> {
     var outputFormat = DateFormat('MM/dd/yyyy hh:mm a');
     var outputDate = outputFormat.format(inputDate);
     return outputDate.toString();
-  }
-
-  void pastDateFormat() {
-    var date = DateTime.now().subtract(const Duration(days: 1));
-    var inputDate = DateTime.parse(date.toString());
-    var outputFormat = DateFormat('yyyy-MM-dd');
-    var outputDate = outputFormat.format(inputDate);
-    print("${outputDate}previous day");
   }
 }
 /*

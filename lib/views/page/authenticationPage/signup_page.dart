@@ -3,6 +3,8 @@ import 'package:flutter_news/authentication/authentication.dart';
 import 'package:flutter_news/route/app_route.dart';
 import 'package:get/get.dart';
 
+import '../../../utils/dimensions/dimensions.dart';
+
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
 
@@ -17,8 +19,8 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          height: MediaQuery.of(context).size.height - 50,
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.width40),
+          height: MediaQuery.of(context).size.height - Dimensions.height50,
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -26,20 +28,21 @@ class SignupPage extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  const SizedBox(height: 60.0),
-                  const Text(
+                  SizedBox(height: Dimensions.height60),
+                  Text(
                     "Sign up",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: Dimensions.font30,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: Dimensions.height20,
                   ),
                   Text(
                     "Create your account",
-                    style: TextStyle(fontSize: 15, color: Colors.grey[700]),
+                    style: TextStyle(
+                        fontSize: Dimensions.font16, color: Colors.grey[700]),
                   )
                 ],
               ),
@@ -50,31 +53,34 @@ class SignupPage extends StatelessWidget {
                     decoration: InputDecoration(
                         hintText: "Username",
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radious20),
                             borderSide: BorderSide.none),
                         fillColor: Colors.purple.withOpacity(0.1),
                         filled: true,
                         prefixIcon: const Icon(Icons.person)),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: Dimensions.height20),
                   TextField(
                     controller: emailController,
                     decoration: InputDecoration(
                         hintText: "Email",
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radious20),
                             borderSide: BorderSide.none),
                         fillColor: Colors.purple.withOpacity(0.1),
                         filled: true,
                         prefixIcon: const Icon(Icons.email)),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: Dimensions.height20),
                   TextField(
                     controller: passwordController,
                     decoration: InputDecoration(
                       hintText: "Password",
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(18),
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radious20),
                           borderSide: BorderSide.none),
                       fillColor: Colors.purple.withOpacity(0.1),
                       filled: true,
@@ -82,13 +88,14 @@ class SignupPage extends StatelessWidget {
                     ),
                     obscureText: true,
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: Dimensions.height20),
                   TextField(
                     controller: confirmPasswordController,
                     decoration: InputDecoration(
                       hintText: "Confirm Password",
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(18),
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radious20),
                           borderSide: BorderSide.none),
                       fillColor: Colors.purple.withOpacity(0.1),
                       filled: true,
@@ -99,7 +106,8 @@ class SignupPage extends StatelessWidget {
                 ],
               ),
               Container(
-                  padding: const EdgeInsets.only(top: 3, left: 3),
+                  padding: EdgeInsets.only(
+                      top: Dimensions.height5, left: Dimensions.width5),
                   child: ElevatedButton(
                     onPressed: () {
                       AuthService.signUp(emailController.text.toString(),
@@ -107,19 +115,20 @@ class SignupPage extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       shape: const StadiumBorder(),
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      padding:
+                          EdgeInsets.symmetric(vertical: Dimensions.height15),
                       backgroundColor: Colors.purple,
                     ),
-                    child: const Text(
+                    child: Text(
                       "Sign up",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: Dimensions.font20),
                     ),
                   )),
               const Center(child: Text("Or")),
               Container(
-                height: 45,
+                height: Dimensions.height40,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(Dimensions.radious20),
                   border: Border.all(
                     color: Colors.purple,
                   ),
@@ -140,8 +149,8 @@ class SignupPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 30.0,
-                        width: 30.0,
+                        height: Dimensions.height40,
+                        width: Dimensions.width40,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
@@ -150,11 +159,11 @@ class SignupPage extends StatelessWidget {
                           shape: BoxShape.circle,
                         ),
                       ),
-                      const SizedBox(width: 18),
-                      const Text(
+                      SizedBox(width: Dimensions.width20),
+                      Text(
                         "Sign In with Google",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: Dimensions.font16,
                           color: Colors.purple,
                         ),
                       ),
