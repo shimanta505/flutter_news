@@ -20,23 +20,48 @@ class OnlineNewsBinding extends Bindings {
   }
 }
 
-class OnlineNewsPage extends StatelessWidget {
+class OnlineNewsPage extends StatefulWidget {
   OnlineNewsPage({super.key});
 
-  final controller = Get.put<OnlineNewsController>(OnlineNewsController());
-  final offlineController =
-      Get.put<OfflineNewsController>(OfflineNewsController());
+  @override
+  State<OnlineNewsPage> createState() => _OnlineNewsPageState();
+}
+
+class _OnlineNewsPageState extends State<OnlineNewsPage> {
+  late final OnlineNewsController controller;
+
+  late final OfflineNewsController offlineNewsController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    try {
+      controller = Get.find<OnlineNewsController>();
+      offlineNewsController = Get.find<OfflineNewsController>();
+    } on Error catch (e) {
+      print(e.toString());
+      controller = Get.put(OnlineNewsController());
+      offlineNewsController = Get.put(OfflineNewsController());
+    }
+    super.initState();
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+  }
 
   Future<void> loadData() async {
     await controller.getNews();
-    offlineController.loadData();
-    print(offlineController.offlineNews.length);
+    offlineNewsController.loadData();
+    print(offlineNewsController.offlineNews.length);
     print("completed");
   }
 
   @override
   Widget build(BuildContext context) {
     loadData();
+
     return Column(
       children: [
         Expanded(
